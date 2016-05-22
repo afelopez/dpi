@@ -1,8 +1,8 @@
 function test()
     clc
     delete('className.mat')
-    delete('trainset.mat')
+    delete('atributos.mat')
     init
     memoria
-    simpleOCR
+    representacion
 end

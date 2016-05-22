@@ -1,27 +1,27 @@
 function memoria()
-    %%Se obtiene la lista de clases 
-    dirList = dir(['trainingSet/rep']);
+    %%Se obtiene la lista de clases
+    list_dir = dir(['trainingSet/rep']);
     cont = 1; 
-    trainset = []; 
-    className = [];
-    for ndir=1:length(dirList)
-        if ~(strcmp(dirList(ndir).name, '.') || strcmp(dirList(ndir).name, '..'))
-            if dirList(ndir).isdir == 1,
-                %% se obtiene la lista de imagenes de cada lista
-                imageList = dir(['trainingSet/rep/' dirList(ndir).name '/*.png']);
-                disp(['Procesando clase: ' dirList(ndir).name]);                
-                for nImage=1:length(imageList)
-                    currentImage = imread(['trainingSet/rep/' dirList(ndir).name '/' imageList(nImage).name]);
+    attr = []; 
+    clases = [];
+    for ndir=1:length(list_dir)
+        if ~(strcmp(list_dir(ndir).name, '.') || strcmp(list_dir(ndir).name, '..'))
+            if list_dir(ndir).isdir == 1,
+                % se obtiene la lista de las imagenes de cada clase
+                img_list = dir(['trainingSet/rep/' list_dir(ndir).name '/*.png']);
+                disp(['Procesando clase: ' list_dir(ndir).name]);                
+                for nImage=1:length(img_list)
+                    img_act = imread(['trainingSet/rep/' list_dir(ndir).name '/' img_list(nImage).name]);
                     % nombre de la clase
-                    className(cont,1) = dirList(ndir).name - 48;                
+                    clases(cont,1) = list_dir(ndir).name - 48;                
                     % se obtienen los atributos de la imagen actual
-                    trainset = cat(1, trainset, atributos(currentImage));
+                    attr = cat(1, attr, atributos(img_act));
                     cont = cont + 1;                    
                 end                
             end
         end
     end     
-    %% save dataset
-    save('trainset.mat','trainset');
-    save('className.mat','className');
+    %% guarda memoria
+    save('atributos.mat','attr');
+    save('clases.mat','clases');
 end
