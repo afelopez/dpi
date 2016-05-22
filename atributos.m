@@ -12,7 +12,5 @@ function [features] = atributos(img)
     features(cont) = centroide(2);  
     cont = cont + 1;    
     %% distancia del centro al centroide
-    features(cont) = sqrt( ...
-        (centro(1) - centroide(1))^2 + ...
-        (centro(2) - centroide(2))^2);    
+    features(cont) = sqrt((centro(1) - centroide(1))^2 + (centro(2) - centroide(2))^2);    
 end

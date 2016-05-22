@@ -9,7 +9,9 @@ function simpleOcr()
     % se obtienen los segmentos de la imagen
     [baseFileName, folder] = uigetfile('*.*', 'Elija una imagen');
     fullImageFileName = fullfile(folder, baseFileName);
-    segmentos = getSegmentsFromImage(fullImageFileName);
+    img_act = imread(fullImageFileName);
+    segmentos = segmentacion(img_act);
+    
     numObj = length(segmentos);
     %show image
     imageToTest = imread(fullImageFileName);
