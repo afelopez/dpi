@@ -1,10 +1,10 @@
 function createDataSet()
-clc
-close all
     %%Se obtiene la lista de clases
     folderName ='nums';    
     dirList = dir(['trainingSet/' folderName]);
-    cont = 1; trainset = []; className = [];
+    cont = 1; 
+    trainset = []; 
+    className = [];
     for ndir=1:length(dirList)
         if ~(strcmp(dirList(ndir).name, '.') || strcmp(dirList(ndir).name, '..'))
             if dirList(ndir).isdir == 1,

@@ -1,8 +1,7 @@
 function test()
-    clc
-    delete('className.mat')
-    delete('trainset.mat')
+    remove
     segmentTrainingSet
     createDataSet
     simpleOCR
+    
 end
