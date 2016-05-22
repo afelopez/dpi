@@ -3,6 +3,6 @@ function test()
     delete('className.mat')
     delete('trainset.mat')
     init
-    createDataSet
+    memoria
     simpleOCR
 end

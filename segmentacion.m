@@ -5,7 +5,6 @@ function segmentos = segmentacion(img_act)
         img_act = rgb2gray(img_act);
     end
     grayImage = imadjust(uint8(img_act));        
- 
     %% Segmentación en regiones
     thresh = multithresh(grayImage,1);   
     segmentedImage = imquantize(grayImage,thresh);
