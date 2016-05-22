@@ -1,8 +1,6 @@
 function segmentos = segmentacion(img_act)
     %% 1. Segmentación de regiones
-        
-    % AQUI DEBE IR CODIGO PARA BINARIZAR LA IMAGEN
-    
+    % AQUI DEBE IR CODIGO PARA BINAR
     %% 3. Erosion de regiones
     fact_er=4;
     se = strel('disk',fact_er);
@@ -10,7 +8,8 @@ function segmentos = segmentacion(img_act)
     %% 4. Etiquetado de las regiones hallados
     [regiones, num_seg] = bwlabel(img_ero);        
     %% 5. Se obtiene el Bounding Box de las regiones conectadas
-    bBox = regionprops(regiones, 'BoundingBox');    
+    bBox = regionprops(regiones, 'BoundingBox');
+    
     for k = 1 : num_seg
         %se obtiene la región de imagen segmentada
         segmentos(k).image = regiones( ...
@@ -22,9 +21,11 @@ function segmentos = segmentacion(img_act)
         %se obtiene el tamaño
         segmentos(k).size = size(segmentos(k).image);
     end
-    k = 1;    
+    k = 1;
+    
     %% 6. limpieza 
     tam = segmentos(k).size(1)*segmentos(k).size(2);
+    
     while k <= num_seg
        if (tam < 10000) || (tam > 62500)
            segmentos(k) = [];  
