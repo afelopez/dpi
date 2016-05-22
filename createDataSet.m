@@ -16,7 +16,7 @@ close all
                     % nombre de la clase
                     className(cont,1) = dirList(ndir).name - 48;                
                     % se obtienen los atributos de la imagen actual
-                    trainset = cat(1, trainset, getFeatures(currentImage,0));
+                    trainset = cat(1, trainset, atributos(currentImage));
                     cont = cont + 1;                    
                 end                
             end

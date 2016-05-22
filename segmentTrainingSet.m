@@ -17,7 +17,7 @@ close all
     for ndir=1:length(dirList)
         if ~(strcmp(dirList(ndir).name, '.') || strcmp(dirList(ndir).name, '..'))
             if dirList(ndir).isdir == 1,
-                disp(['--Limpiando training set: ' dirList(ndir).name]);        
+                disp(['-Limpiando training set: ' dirList(ndir).name]);        
 
                 % se obtiene la lista de imagenes de cada clase
                 imageList = dir(['trainingSet/' carpetaEntrenamiento '/' dirList(ndir).name '/*.png']);

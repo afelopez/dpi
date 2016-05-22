@@ -41,7 +41,7 @@ end
 
 
 function [label_str] = predictionGivenImage(model,imgTest)
-    instance4test = getFeatures(imgTest);
+    instance4test = atributos(imgTest);
     label = predict(model,instance4test);
     label_str = ntostr(label);
 end
