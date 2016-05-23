@@ -15,8 +15,7 @@ function segmentos = segmentacion(img_act)
     % Etiquetado de las regiones hallados
     [regiones, num_seg] = bwlabel(img_ero);        
     % Se obtiene el cuadro delimitador de las regiones conectadas
-    c_del = regionprops(regiones, 'BoundingBox');
-    
+    c_del = regionprops(regiones, 'BoundingBox');    
     for k = 1 : num_seg
         %se obtiene la región de imagen segmentada
         segmentos(k).image = regiones( ...
@@ -28,11 +27,9 @@ function segmentos = segmentacion(img_act)
         %se obtiene el tamaño
         segmentos(k).size = size(segmentos(k).image);
     end
-    k = 1;
-    
-    %% 6. limpieza 
-    tam = segmentos(k).size(1)*segmentos(k).size(2);
-    
+    k = 1;  
+    % limpieza 
+    tam = segmentos(k).size(1)*segmentos(k).size(2);    
     while k <= num_seg
        if (tam < 10000) || (tam > 62500)
            segmentos(k) = [];  

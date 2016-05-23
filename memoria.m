@@ -1,6 +1,6 @@
 function memoria()
     %%Se obtiene la lista de clases
-    list_dir = dir(['trainingSet/rep']);
+    list_dir = dir('trainingSet/rep');
     cont = 1; 
     attr = []; 
     clases = [];
