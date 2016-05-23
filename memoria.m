@@ -21,7 +21,7 @@ function memoria()
             end
         end
     end     
-    %% guarda memoria
+    % guarda memoria
     save('atributos.mat','attr');
     save('clases.mat','clases');
 end
