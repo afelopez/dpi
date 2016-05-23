@@ -13,7 +13,7 @@ function memoria()
                 for nImage=1:length(img_list)
                     img_act = imread(['trainingSet/rep/' list_dir(ndir).name '/' img_list(nImage).name]);
                     % nombre de la clase
-                    clases(cont,1) = list_dir(ndir).name - 48;                
+                    clases(cont,1) = str2num(list_dir(ndir).name);                
                     % se obtienen los atributos de la imagen actual
                     attr = cat(1, attr, atributos(img_act));
                     cont = cont + 1;                    
